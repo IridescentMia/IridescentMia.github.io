@@ -4,24 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>写在前面 | Mia</title>
+  <title>百度前端学院-task22-三步实现二叉树的遍历 | Mia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到Mia的新家，一直想给自己搭个博客，酝酿了好久，终于想记录的东西太多，才开始动手。
-之前总觉得要学的东西太多，急匆匆的赶路，常常忽略总结和回顾。以后我会在这里和大家分享我的成长。喜欢Litten说的，这里更像是属于自己的一块小小的领地，因而我满足于这种归属感。我愿在上面安静劳作。
-默默的许下一个愿望，在下一个秋天到的时候，能收货一片金黄。">
+  <meta name="description" content="今天完成了百度前端技术培训的task22，实现了二叉树的三种遍历办法，并以动画的形式呈现，顺便复习了一下二叉树，学习了flexbox，试用了scss。
+源码地址：https://github.com/IridescentMia/IFE-Mia/tree/gh-pages/task22-Binary%20Tree
+demo: http://iridescentmia.github.io/IFE-Mi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在前面">
-<meta property="og:url" content="http://yoursite.com/2016/03/08/写在前面/index.html">
+<meta property="og:title" content="百度前端学院-task22-三步实现二叉树的遍历">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/百度前端学院-task22-Js实现二叉树的遍历/index.html">
 <meta property="og:site_name" content="Mia">
-<meta property="og:description" content="欢迎来到Mia的新家，一直想给自己搭个博客，酝酿了好久，终于想记录的东西太多，才开始动手。
-之前总觉得要学的东西太多，急匆匆的赶路，常常忽略总结和回顾。以后我会在这里和大家分享我的成长。喜欢Litten说的，这里更像是属于自己的一块小小的领地，因而我满足于这种归属感。我愿在上面安静劳作。
-默默的许下一个愿望，在下一个秋天到的时候，能收货一片金黄。">
-<meta property="og:updated_time" content="2016-03-13T02:33:04.026Z">
+<meta property="og:description" content="今天完成了百度前端技术培训的task22，实现了二叉树的三种遍历办法，并以动画的形式呈现，顺便复习了一下二叉树，学习了flexbox，试用了scss。
+源码地址：https://github.com/IridescentMia/IFE-Mia/tree/gh-pages/task22-Binary%20Tree
+demo: http://iridescentmia.github.io/IFE-Mi">
+<meta property="og:updated_time" content="2016-03-22T13:12:39.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写在前面">
-<meta name="twitter:description" content="欢迎来到Mia的新家，一直想给自己搭个博客，酝酿了好久，终于想记录的东西太多，才开始动手。
-之前总觉得要学的东西太多，急匆匆的赶路，常常忽略总结和回顾。以后我会在这里和大家分享我的成长。喜欢Litten说的，这里更像是属于自己的一块小小的领地，因而我满足于这种归属感。我愿在上面安静劳作。
-默默的许下一个愿望，在下一个秋天到的时候，能收货一片金黄。">
+<meta name="twitter:title" content="百度前端学院-task22-三步实现二叉树的遍历">
+<meta name="twitter:description" content="今天完成了百度前端技术培训的task22，实现了二叉树的三种遍历办法，并以动画的形式呈现，顺便复习了一下二叉树，学习了flexbox，试用了scss。
+源码地址：https://github.com/IridescentMia/IFE-Mia/tree/gh-pages/task22-Binary%20Tree
+demo: http://iridescentmia.github.io/IFE-Mi">
   
     <link rel="alternative" href="/atom.xml" title="Mia" type="application/atom+xml">
   
@@ -178,11 +178,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-写在前面" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-百度前端学院-task22-Js实现二叉树的遍历" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/08/写在前面/" class="article-date">
-  	<time datetime="2016-03-08T08:13:16.000Z" itemprop="datePublished">2016-03-08</time>
+      <a href="/2016/03/22/百度前端学院-task22-Js实现二叉树的遍历/" class="article-date">
+  	<time datetime="2016-03-22T10:44:12.000Z" itemprop="datePublished">2016-03-22</time>
 </a>
     </div>
   
@@ -195,7 +195,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      写在前面
+      百度前端学院-task22-三步实现二叉树的遍历
     </h1>
   
 
@@ -204,7 +204,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂谈/">杂谈</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFE/">IFE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</div>
 
         
@@ -215,9 +215,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>欢迎来到Mia的新家，一直想给自己搭个博客，酝酿了好久，终于想记录的东西太多，才开始动手。</p>
-<p>之前总觉得要学的东西太多，急匆匆的赶路，常常忽略总结和回顾。以后我会在这里和大家分享我的成长。喜欢Litten说的，这里更像是属于自己的一块小小的领地，因而我满足于这种归属感。我愿在上面安静劳作。</p>
-<p>默默的许下一个愿望，在下一个秋天到的时候，能收货一片金黄。</p>
+        <p>今天完成了百度前端技术培训的task22，实现了二叉树的三种遍历办法，并以动画的形式呈现，顺便复习了一下二叉树，学习了flexbox，试用了scss。</p>
+<p>源码地址：<a href="https://github.com/IridescentMia/IFE-Mia/tree/gh-pages/task22-Binary%20Tree" target="_blank" rel="external">https://github.com/IridescentMia/IFE-Mia/tree/gh-pages/task22-Binary%20Tree</a></p>
+<p>demo: <a href="http://iridescentmia.github.io/IFE-Mia/task22-Binary%20Tree/" target="_blank" rel="external">http://iridescentmia.github.io/IFE-Mia/task22-Binary%20Tree/</a></p>
+<a id="more"></a>
+<h4 id="第一步：定义遍历函数"><a href="#第一步：定义遍历函数" class="headerlink" title="第一步：定义遍历函数"></a><strong>第一步：定义遍历函数</strong></h4><p>理解三种遍历</p>
+<ul>
+<li>前序遍历：父节点-左孩子节点-右孩子节点</li>
+<li>中序遍历：左孩子节点-父节点-右孩子节点</li>
+<li>后序遍历：左孩子节点-右孩子节点-父节点</li>
+</ul>
+<p>用递归的方式实现很容易理解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preOrder</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tree !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(node);</span><br><span class="line">        preOrder(node.firstElementChild);</span><br><span class="line">        preOrder(node.lastElementChild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>中序和后序类似前序，就不贴代码了。</p>
+<h4 id="第二步：理解DOM树，完成前序遍历"><a href="#第二步：理解DOM树，完成前序遍历" class="headerlink" title="第二步：理解DOM树，完成前序遍历"></a><strong>第二步：理解DOM树，完成前序遍历</strong></h4><p>刚入手这个题目的时候，一直想着怎么定义节点，怎么定义树，偶然醒悟，DOM里面每个元素都是现成的节点，有node.firstElementChild, node.lastElementChild等指向子节点，DOM本身就是一颗大树~那接下来的工作就容易多了。</p>
+<p>获取最顶层的元素，再调用之前写好的函数preOrder就可以实现前序遍历了，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> domTree = <span class="built_in">document</span>.getElementById(<span class="string">'top-level'</span>);</span><br><span class="line">preOrder(domTree);</span><br></pre></td></tr></table></figure></p>
+<h4 id="第三步：以动画的方式呈现"><a href="#第三步：以动画的方式呈现" class="headerlink" title="第三步：以动画的方式呈现"></a><strong>第三步：以动画的方式呈现</strong></h4><p>将前两步的遍历结果存入数组，然后这一步只需循环一遍数组元素，并相应的改变样式即可。</p>
+<p>这里用到了setInterval，每一个间隔循环一个数组元素。1.将前一个数组元素回归白色背景；2.将当前元素背景色设置为非白色。</p>
+<hr>
+<p><small>最后附上两个flex的教程，从入门到静态的利器，强烈推荐</small></p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">Flex 布局教程：语法篇</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex 布局教程：实例篇</a></li>
+</ul>
 
       
     </div>
@@ -227,15 +246,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/14/SQL使用小结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          SQL处理数据小结
-        
-      </div>
-    </a>
   
+    <a href="/2016/03/21/百度前端学院-task8小结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">百度前端学院-task8小结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -268,7 +283,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="写在前面" data-title="写在前面" data-url="http://yoursite.com/2016/03/08/写在前面/"></div>
+	<div class="ds-thread" data-thread-key="百度前端学院-task22-Js实现二叉树的遍历" data-title="百度前端学院-task22-三步实现二叉树的遍历" data-url="http://yoursite.com/2016/03/22/百度前端学院-task22-Js实现二叉树的遍历/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
