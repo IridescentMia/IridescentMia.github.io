@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/5 | Mia</title>
+  <title>地图坐标体系介绍及其互转工具 | Mia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mia">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mia">
-<meta property="og:url" content="http://yoursite.com/archives/2016/05/index.html">
+  <meta name="description" content="今天在用leaflet的时候发现，手头数据的经纬度坐标是基于百度地图体系的，在leaflet中用openstreetmap会有很大的偏移，解决了偏移问题，顺便了解了一下不同地图使用的坐标体系，整理如下：
+先说一说现有的坐标体系：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地图坐标体系介绍及其互转工具">
+<meta property="og:url" content="http://yoursite.com/2016/05/14/地图坐标体系介绍及其互转工具/index.html">
 <meta property="og:site_name" content="Mia">
-<meta property="og:description" content="mia">
+<meta property="og:description" content="今天在用leaflet的时候发现，手头数据的经纬度坐标是基于百度地图体系的，在leaflet中用openstreetmap会有很大的偏移，解决了偏移问题，顺便了解了一下不同地图使用的坐标体系，整理如下：
+先说一说现有的坐标体系：">
+<meta property="og:updated_time" content="2016-05-14T12:07:43.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mia">
-<meta name="twitter:description" content="mia">
+<meta name="twitter:title" content="地图坐标体系介绍及其互转工具">
+<meta name="twitter:description" content="今天在用leaflet的时候发现，手头数据的经纬度坐标是基于百度地图体系的，在leaflet中用openstreetmap会有很大的偏移，解决了偏移问题，顺便了解了一下不同地图使用的坐标体系，整理如下：
+先说一说现有的坐标体系：">
   
     <link rel="alternative" href="/atom.xml" title="Mia" type="application/atom+xml">
   
@@ -171,84 +175,132 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-地图坐标体系介绍及其互转工具" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/14/地图坐标体系介绍及其互转工具/" class="archive-article-date">
-  	<time datetime="2016-05-14T12:06:53.000Z" itemprop="datePublished">5月 14</time>
+    <div class="article-meta">
+      <a href="/2016/05/14/地图坐标体系介绍及其互转工具/" class="article-date">
+  	<time datetime="2016-05-14T12:06:53.000Z" itemprop="datePublished">2016-05-14</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/14/地图坐标体系介绍及其互转工具/">地图坐标体系介绍及其互转工具</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      地图坐标体系介绍及其互转工具
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/08/JavaScript中的正则表达式/" class="archive-article-date">
-  	<time datetime="2016-05-08T08:56:26.000Z" itemprop="datePublished">5月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/08/JavaScript中的正则表达式/">JavaScript中的正则表达式</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在用leaflet的时候发现，手头数据的经纬度坐标是基于百度地图体系的，在leaflet中用openstreetmap会有很大的偏移，解决了偏移问题，顺便了解了一下不同地图使用的坐标体系，整理如下：</p>
+<p>先说一说现有的坐标体系：</p>
+<a id="more"></a>
+<ul>
+<li><strong>WGS-84/地球坐标</strong></li>
+</ul>
+<p>使用者：谷歌（除去中国部分），OpenStreetMap<br>原始坐标体系。很可惜，在中国，任何一个地图产品都不允许使用GPS坐标。保密。</p>
+<ul>
+<li><strong>GCJ-02/火星坐标/国测局坐标</strong></li>
+</ul>
+<p>使用者：谷歌（中国地图部分），腾讯，高德<br>在中国，必须至少使用GCJ-02的坐标体系。GCJ-02也是国内最广泛使用的坐标体系。</p>
+<ul>
+<li><strong>BD-09/百度坐标</strong></li>
+</ul>
+<p>使用者：百度<br>百度公司独有的坐标系</p>
+<p>下面介绍几个坐标转换的工具：</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/coordtransform" target="_blank" rel="external">coordtransform</a>: 基于Node.js</li>
+<li><a href="https://github.com/wandergis/coordTransform_py" target="_blank" rel="external">coordTransform_py</a>: 基于Python版本</li>
+<li><a href="http://prog3.com/sbdm/blog/longshengguoji/article/details/49128545" target="_blank" rel="external">GCJ02 BD09 and WGS84 coordinate system conversion code</a>: 基于JavaScript的野生版本</li>
+</ul>
+<p>看到定位点终于回到了它原本的位置，真是一身轻松呢~</p>
+<hr>
+<p>【参考资料】<br><a href="https://www.npmjs.com/package/coordtransform" target="_blank" rel="external">coordtransform</a><br><a href="https://segmentfault.com/a/1190000000498434" target="_blank" rel="external">【高德地图API】如何解决坐标转换，坐标偏移？</a><br><a href="http://prog3.com/sbdm/blog/longshengguoji/article/details/49128545" target="_blank" rel="external">GCJ02 BD09 and WGS84 coordinate system conversion code</a></p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/08/JavaScript中的正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript中的正则表达式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="地图坐标体系介绍及其互转工具" data-title="地图坐标体系介绍及其互转工具" data-url="http://yoursite.com/2016/05/14/地图坐标体系介绍及其互转工具/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -274,8 +326,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
