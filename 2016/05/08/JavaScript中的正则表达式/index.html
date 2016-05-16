@@ -28,7 +28,7 @@ split
 
 1.1 search
 12var str=&apos;abcdef&apos;;alert(str.search(&apos;b&apos;));//1, 找到则返回所在位置">
-<meta property="og:updated_time" content="2016-05-08T08:58:02.818Z">
+<meta property="og:updated_time" content="2016-05-16T08:23:25.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的正则表达式">
 <meta name="twitter:description" content="最近一直用到正则表达式，今天跟着教程系统学习了一下，整理笔记如下：
@@ -97,7 +97,7 @@ split
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -322,6 +322,11 @@ split
 <p>但是此时取出的是上面完整的段落，造成这样的原因是<strong>正则表达式的贪婪性</strong>，即会取出满足表达式的尽可能长的字符串，于是从段首的“&lt;”开始，一直取到断尾的“&gt;”。</p>
 <p>正则表达式中 .+ 描述的不准确，并不是“&lt;&gt;”中任何字符都可以出现，其自身就不可以出现，修改正则表达式为：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/&lt;[^&lt;&gt;]+&gt;/g</span>;</span><br></pre></td></tr></table></figure>
+<p>———————- 2016年5月16日更新 ———————-</p>
+<h3 id="5-正则表达式中包含变量"><a href="#5-正则表达式中包含变量" class="headerlink" title="5.正则表达式中包含变量"></a><strong>5.正则表达式中包含变量</strong></h3><p>今天写正则的时候遇到一个问题，我希望得到的正则表达式是下面这样的，其中stations[i]是个字符串变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/.*stations[i]/</span>;</span><br></pre></td></tr></table></figure></p>
+<p>然而这样写的结果，得到的正则真的是就是原样的 /.*stations[i]/，stations[i]被当成了一个字符串处理了，而不是变量。</p>
+<p>找到的解决办法是使用JavaScript风格的书写方式，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">".*"</span>+stations[i]);</span><br></pre></td></tr></table></figure></p>
+<p>OK~就是这么简单！</p>
 <hr>
 <p><strong>参考资料：</strong></p>
 <p><a href="http://bbs.zhinengshe.com/thread-1211-1-1.html" target="_blank" rel="external">智能社JavaScript视频教程-32.JS中的正则表达式</a><br><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499503920bb7b42ff6627420da2ceae4babf6c4f2000" target="_blank" rel="external">廖雪峰JavaScript教程-RegExp</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">W3School-JavaScript RegExp 对象</a></p>
