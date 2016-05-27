@@ -1,10 +1,11 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SHSubway项目笔记3-D3+LeafLet绘图 · Mia</title><meta name="description" content="SHSubway项目笔记3-D3+LeafLet绘图 - Mia Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/iridescentmia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">SHSubway项目笔记3-D3+LeafLet绘图</h1><div class="post-info">May 27, 2016</div><div class="post-content"><p>最近又把之前读的论文找出来重读，寄希望在反复阅读中能找到灵感，这个过程有点难过，就像刚刚接触一样东西，盲人摸象一样，好像知道它大概是个什么，又深觉不得要领。</p>
-<p>而读论文又不像写代码，可以明确的知道写了多少行，做了什么效果。成果很难衡量，所以常常苦恼。</p>
+<p>而读论文又不像写代码，可以明确的知道写了多少行，做了什么效果。成果很难衡量，所以最近常常苦恼。</p>
 <p>下面继续整理最近解决的问题，结构目录如下：</p>
 <ul>
 <li>1.在leaflet绘制的地图上，用D3添加元素</li>
 <li>2.JavaScript的Date对象，加上一段时间</li>
 <li>3.line chart的转折点的光滑处理</li>
+<li>4.D3坐标轴样式</li>
 </ul>
 <a id="more"></a>
 <h3 id="1-在leaflet绘制的地图上，用D3添加元素"><a href="#1-在leaflet绘制的地图上，用D3添加元素" class="headerlink" title="1.在leaflet绘制的地图上，用D3添加元素"></a><strong>1.在leaflet绘制的地图上，用D3添加元素</strong></h3><p>需求就是像下图这样，在渲染好的地图上使用svg绘制各个地铁站点以及线路的信息。</p>
