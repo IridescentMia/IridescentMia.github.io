@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-16T13:37:49.416Z</updated>
+  <updated>2016-06-20T11:06:46.956Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SHSubway项目笔记4-mongoDB+JavaScript</title>
+    <link href="http://yoursite.com/2016/06/20/SHSubway%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B04-mongoDB-JavaScript/"/>
+    <id>http://yoursite.com/2016/06/20/SHSubway项目笔记4-mongoDB-JavaScript/</id>
+    <published>2016-06-20T11:06:19.000Z</published>
+    <updated>2016-06-20T11:06:46.956Z</updated>
+    
+    <content type="html">&lt;p&gt;目录结构&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.mongoDB执行js脚本&lt;/li&gt;
+&lt;li&gt;2.mongoDB大量删除数据空间释放问题&lt;/li&gt;
+&lt;li&gt;3.JavaScript中深复制和浅复制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;1-mongoDB执行js脚本&quot;&gt;&lt;a href=&quot;#1-mongoDB执行js脚本&quot; class=&quot;headerlink&quot; title=&quot;1.mongoDB执行js脚本 &quot;&gt;&lt;/a&gt;&lt;strong&gt;1.mongoDB执行js脚本 &lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;一直用roboMongo做mongoDB的管理，界面很清晰很好用，直到执行运行时间很久很耗内存的命令，roboMongo一次又一次的崩溃，发现还是shell靠谱抗造。&lt;/p&gt;
+&lt;p&gt;mongoDB的shell是JavaScript实现的，用shell执行js脚本方便稳定。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将js脚本保存到mongoDB的bin目录下&lt;/li&gt;
+&lt;li&gt;命令行工具进入bin目录，执行以下操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mongo &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;27017&lt;/span&gt;/dbName –quiet test.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后就静静的等待运行结束吧~&lt;/p&gt;
+&lt;p&gt;【参考】&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/zzq900503/article/details/46414115&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;mongodb执行js脚本(一)—shell执行&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-mongoDB大量删除数据空间释放问题&quot;&gt;&lt;a href=&quot;#2-mongoDB大量删除数据空间释放问题&quot; class=&quot;headerlink&quot; title=&quot;2.mongoDB大量删除数据空间释放问题&quot;&gt;&lt;/a&gt;&lt;strong&gt;2.mongoDB大量删除数据空间释放问题&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;在删除数据的过程中，发现一个奇怪的现象，原本数据库25.5G，有413562171个文档。我执行了下面的操作：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.collectionName.remove( &amp;#123; xxx: &lt;span class=&quot;string&quot;&gt;&quot;xxx&quot;&lt;/span&gt; &amp;#125; )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个操作删除了165540416个文档之后，数据库的大小竟然不减反加，变成25.8G。这让我非常困惑。&lt;/p&gt;
+&lt;p&gt;【原因】&lt;br&gt;在Stack Overflow提问，原来是mongoDB不会自动释放空间，它认为这些空间在以后新建文档的时候还能用到。&lt;/p&gt;
+&lt;p&gt;【手动释放空间】&lt;br&gt;如果想释放这些空间，可以使用repairDatabase&lt;/p&gt;
+&lt;p&gt;mongo shell命令为：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.repairDatabase()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;或者命令行工具在mongoDB安装bin目录下执行&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mongod --repair&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;【参考】&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37499195/why-the-mongodb-database-take-more-space-after-removing-documents&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Why the mongodb database take more space after removing documents&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-JavaScript中深复制和浅复制&quot;&gt;&lt;a href=&quot;#3-JavaScript中深复制和浅复制&quot; class=&quot;headerlink&quot; title=&quot;3.JavaScript中深复制和浅复制&quot;&gt;&lt;/a&gt;&lt;strong&gt;3.JavaScript中深复制和浅复制&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;先看如下代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; original = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;original.a = &lt;span class=&quot;string&quot;&gt;&#39;abc&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; copy = original;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;copy.a = &lt;span class=&quot;string&quot;&gt;&#39;xxx&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(original.a);&lt;span class=&quot;comment&quot;&gt;// 输出xxx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;新建对象copy，并将对象original赋值给对象copy，然后修改copy的属性a，发现对象original的属性被改变。&lt;/p&gt;
+&lt;p&gt;【原因】&lt;br&gt;因为JavaScript存储对象都是存地址的，所以以上复制会导致original和copy指向同一块内存地址，以上对象的复制方式为浅复制。&lt;/p&gt;
+&lt;p&gt;如果想复制后修改属性，而不改变原对象属性值，可以采用深复制方式，开辟一块新的内存地址，将原对象的各个属性&lt;strong&gt;逐个复制&lt;/strong&gt;过去。&lt;/p&gt;
+&lt;p&gt;深复制可以使用jQuery的$.extend()函数实现，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; x = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    b: &amp;#123; f: &amp;#123; g: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &amp;#125; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c: [ &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; y = $.extend(&amp;#123;&amp;#125;, x),        &lt;span class=&quot;comment&quot;&gt;// 浅复制&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    z = $.extend(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;, &amp;#123;&amp;#125;, x); &lt;span class=&quot;comment&quot;&gt;// 深复制&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;y.b.f === x.b.f       &lt;span class=&quot;comment&quot;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;z.b.f === x.b.f       &lt;span class=&quot;comment&quot;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;【参考】&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/23031215&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;javascript中的深拷贝和浅拷贝？&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入剖析 JavaScript 的深复制&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目录结构&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.mongoDB执行js脚本&lt;/li&gt;
+&lt;li&gt;2.mongoDB大量删除数据空间释放问题&lt;/li&gt;
+&lt;li&gt;3.JavaScript中深复制和浅复制&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>小tips-CSS篇1</title>
