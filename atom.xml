@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-20T11:06:46.956Z</updated>
+  <updated>2016-07-03T11:53:57.343Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个Flex布局的实例</title>
+    <link href="http://yoursite.com/2016/07/03/%E4%B8%80%E4%B8%AAFlex%E5%B8%83%E5%B1%80%E7%9A%84%E5%AE%9E%E4%BE%8B/"/>
+    <id>http://yoursite.com/2016/07/03/一个Flex布局的实例/</id>
+    <published>2016-07-03T11:53:13.000Z</published>
+    <updated>2016-07-03T11:53:57.343Z</updated>
+    
+    <content type="html">&lt;p&gt;Flex布局是一种更有效，更灵活布局方式，主要思想就是赋予容器（container）改变内部子项目（items）的宽度、高度或次序，通过子项目的扩展/收缩，以达到最好的利用可用空间的目的。&lt;/p&gt;
+&lt;p&gt;Flex还有一个更重要的特点，它是无方向性的（block是垂直向布局，inline是水平向布局），也因而更灵活。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;1-属性简介&quot;&gt;&lt;a href=&quot;#1-属性简介&quot; class=&quot;headerlink&quot; title=&quot;1.属性简介&quot;&gt;&lt;/a&gt;1.属性简介&lt;/h3&gt;&lt;p&gt;Flex布局中定义了很多属性，这些属性可以分为两类，一类是container属性，另一类是items属性。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;container属性：diplay flex-direction flex-wrap flex-flow justify-content align-items align-content&lt;/li&gt;
+&lt;li&gt;items属性：order flex-grow flex-shrink flex-basis flex align-self&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-一个实例&quot;&gt;&lt;a href=&quot;#2-一个实例&quot; class=&quot;headerlink&quot; title=&quot;2.一个实例&quot;&gt;&lt;/a&gt;2.一个实例&lt;/h3&gt;&lt;p&gt;这里用一个例子说明部分属性的使用。例子的布局要求来自这里&lt;a href=&quot;http://ife.baidu.com/task/detail?taskId=10&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://ife.baidu.com/task/detail?taskId=10&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Demo见&lt;a href=&quot;http://codepen.io/IridescentMia/pen/RRgwgW&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面梳理例子中用到的几个属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;justify-content: space-between; 用于调整四个item在水平方向的分布。justify-content取值有如下5种，默认是flex-start。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://o77yvgv4e.bkt.clouddn.com/160703justifycontent.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;align-items: center; 用于高度方向的中间对齐。align-items取值有如下5中，默认为stretch；baseline指的是项目的第一行文字基线对齐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://o77yvgv4e.bkt.clouddn.com/160703alignitems.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;flex-wrap: wrap; 当一行排不下时换行。flex-wrap的取值有三个：nowrap（默认）/wrap/wrap-reverse&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;order: -1; 控制items的排序，默认值为0，值越小越靠前。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;【参考】&lt;br&gt;&lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;A Complete Guide to Flexbox&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Flex 布局教程：语法篇&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-examples.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Flex 布局教程：实例篇&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Flex布局是一种更有效，更灵活布局方式，主要思想就是赋予容器（container）改变内部子项目（items）的宽度、高度或次序，通过子项目的扩展/收缩，以达到最好的利用可用空间的目的。&lt;/p&gt;
+&lt;p&gt;Flex还有一个更重要的特点，它是无方向性的（block是垂直向布局，inline是水平向布局），也因而更灵活。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SHSubway项目笔记4-mongoDB+JavaScript</title>
@@ -216,7 +262,7 @@
     <link href="http://yoursite.com/2016/05/20/SHSubway%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B02-mongoDB-node-js%E8%BE%B9%E7%94%A8%E8%BE%B9%E5%AD%A6/"/>
     <id>http://yoursite.com/2016/05/20/SHSubway项目笔记2-mongoDB-node-js边用边学/</id>
     <published>2016-05-20T11:36:00.000Z</published>
-    <updated>2016-05-20T11:37:37.141Z</updated>
+    <updated>2016-06-24T01:49:23.698Z</updated>
     
     <content type="html">&lt;p&gt;从五一假期回来到今天5月20号，从node.js和mongoDB的小白，到现在基本完成了第一步的目标。截图留念。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://o77yvgv4e.bkt.clouddn.com/0520.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -245,7 +291,7 @@
 &lt;ul&gt;
 &lt;li&gt;删除索引&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.collection.dropIndexes(&lt;span class=&quot;string&quot;&gt;&quot;indexName&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.collection.dropIndex(&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;2-循环中的回调函数&quot;&gt;&lt;a href=&quot;#2-循环中的回调函数&quot; class=&quot;headerlink&quot; title=&quot;2.循环中的回调函数&quot;&gt;&lt;/a&gt;&lt;strong&gt;2.循环中的回调函数&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;这是异步操作中常见的一个陷阱，for循环中的回调函数内，使用for的计数器i，像下面这样：&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; arr = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, len = arr.length; i &amp;lt; len; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    model.count(query, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;err, data&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(arr[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;结果如下：&lt;/p&gt;
